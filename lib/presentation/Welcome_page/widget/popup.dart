@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:turf_tender/presentation/owner_register_page/owner_register.dart';
-import 'package:turf_tender/presentation/user_register_page/user_register.dart';
 
 class PopupContainer extends StatelessWidget {
   @override
