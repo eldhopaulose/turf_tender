@@ -1,16 +1,18 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:turf_tender/presentation/User%20Register%20page/widgets/user_owner_avatar.dart';
+import 'package:turf_tender/presentation/user_register_page/widgets/user_owner_avatar.dart';
 
-class OwnerRegister extends StatefulWidget {
-  const OwnerRegister({super.key});
+@RoutePage()
+class UserRegisterScreen extends StatefulWidget {
+  const UserRegisterScreen({super.key});
 
   @override
-  State<OwnerRegister> createState() => _OwnerRegisterState();
+  State<UserRegisterScreen> createState() => _UserRegisterScreenState();
 }
 
-class _OwnerRegisterState extends State<OwnerRegister> {
+class _UserRegisterScreenState extends State<UserRegisterScreen> {
   bool _obscureText = true;
   TextEditingController _passwordController = TextEditingController();
   @override
@@ -30,7 +32,7 @@ class _OwnerRegisterState extends State<OwnerRegister> {
                     child: Text(
                       'REGISTER',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: const Color.fromRGBO(0, 0, 0, 1),
                         fontSize: 25.sp,
                         fontFamily: 'Fira Sans Extra Condensed',
                         fontWeight: FontWeight.w500,
@@ -115,7 +117,7 @@ class _OwnerRegisterState extends State<OwnerRegister> {
                 ),
               ),
             ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 21.h),
             SizedBox(
               height: 59.h,
               width: 356.w,
@@ -140,7 +142,7 @@ class _OwnerRegisterState extends State<OwnerRegister> {
                 ),
               ),
             ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 21.h),
             SizedBox(
               height: 59.h,
               width: 356.w,
@@ -165,79 +167,7 @@ class _OwnerRegisterState extends State<OwnerRegister> {
                 ),
               ),
             ),
-            SizedBox(height: 10.h),
-            SizedBox(
-              height: 59.h,
-              width: 356.w,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16, right: 18).w,
-                child: TextField(
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 17.sp,
-                    fontFamily: 'Fira Sans Condensed',
-                    fontWeight: FontWeight.w400,
-                  ),
-                  decoration: InputDecoration(
-                      fillColor: Color(0xFFF2F2F2),
-                      labelText: 'Address',
-                      border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10).w))),
-                ),
-              ),
-            ),
-            SizedBox(height: 10.h),
-            SizedBox(
-              height: 59.h,
-              width: 356.w,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16, right: 18).w,
-                child: TextField(
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 17.sp,
-                    fontFamily: 'Fira Sans Condensed',
-                    fontWeight: FontWeight.w400,
-                  ),
-                  inputFormatters: [
-                    FilteringTextInputFormatter.allow(RegExp(r"[a-zA-Z]")),
-                  ],
-                  decoration: InputDecoration(
-                      fillColor: Color(0xFFF2F2F2),
-                      labelText: 'District',
-                      border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10).w))),
-                ),
-              ),
-            ),
-            SizedBox(height: 10.h),
-            SizedBox(
-              height: 59.h,
-              width: 356.w,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16, right: 18).w,
-                child: TextField(
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 17.sp,
-                    fontFamily: 'Fira Sans Condensed',
-                    fontWeight: FontWeight.w400,
-                  ),
-                  inputFormatters: [
-                    FilteringTextInputFormatter.allow(RegExp(r"[0-9]")),
-                  ],
-                  decoration: InputDecoration(
-                      fillColor: Color(0xFFF2F2F2),
-                      labelText: 'Pin Code',
-                      border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10).w))),
-                ),
-              ),
-            ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 21.h),
             SizedBox(
               height: 59.h,
               width: 356.w,
@@ -273,7 +203,7 @@ class _OwnerRegisterState extends State<OwnerRegister> {
                 ),
               ),
             ),
-            SizedBox(height: 45.h),
+            SizedBox(height: 100.h),
             SizedBox(
               height: 59.h,
               width: 356.w,
@@ -286,16 +216,15 @@ class _OwnerRegisterState extends State<OwnerRegister> {
                         backgroundColor: Color(0xFF3792C4),
                         foregroundColor: Colors.white),
                     onPressed: () {
-                      print('owner otp snd tapped');
+                      print('user otp snd tapped');
                     },
                     child: Text(
                       'SEND OTP',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontFamily: 'Fira Sans Condensed',
                         fontWeight: FontWeight.w600,
-                        height: 0,
                       ),
                     )),
               ),

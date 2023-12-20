@@ -1,20 +1,21 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:turf_tender/presentation/Welcome%20Page/widget/popup.dart';
-import 'package:turf_tender/presentation/Welcome%20Page/widget/social_media.dart';
+import 'package:turf_tender/presentation/Welcome_page/widget/popup.dart';
+import 'package:turf_tender/presentation/Welcome_page/widget/social_media.dart';
 
-class MyHome extends StatefulWidget {
-  MyHome({super.key});
+@RoutePage()
+class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({super.key});
 
   @override
-  State<MyHome> createState() => _MyHomeState();
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
-class _MyHomeState extends State<MyHome> {
+class _WelcomeScreenState extends State<WelcomeScreen> {
   bool _obscureText = true;
   TextEditingController _passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(

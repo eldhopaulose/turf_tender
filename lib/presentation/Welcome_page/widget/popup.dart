@@ -1,7 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:turf_tender/presentation/Owner%20Register%20Page/owner_register.dart';
-import 'package:turf_tender/presentation/User%20Register%20page/user_register.dart';
+import 'package:turf_tender/presentation/owner_register_page/owner_register.dart';
+import 'package:turf_tender/presentation/user_register_page/user_register.dart';
 
 class PopupContainer extends StatelessWidget {
   @override
@@ -21,8 +22,7 @@ class PopupContainer extends StatelessWidget {
               imagePath: 'images/triangle .png',
               text: 'Turf User',
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => UserRegister()));
+                context.router.pushNamed('/userregister');
               },
             ),
             Container(
@@ -34,8 +34,7 @@ class PopupContainer extends StatelessWidget {
               imagePath: 'images/ball.png',
               text: 'Turf Owner',
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => OwnerRegister()));
+                context.router.pushNamed('/ownerregister');
               },
             ),
           ],
