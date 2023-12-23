@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:turf_tender/presentation/Welcome_page/welcome_page.dart';
 import 'package:turf_tender/presentation/owner_register_page/owner_register.dart';
+import 'package:turf_tender/presentation/turf_details/turf_details.dart';
+
 import 'package:turf_tender/presentation/user_register_page/user_register.dart';
 
 part 'app_router.gr.dart';
@@ -13,6 +15,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           path: '/',
           page: WelcomeRoute.page,
+          initial: true,
         ),
         AutoRoute(
           path: '/userregister',
@@ -21,6 +24,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           path: '/ownerregister',
           page: OwnerRegisterRoute.page,
+        ),
+        AutoRoute(
+          path: '/turf',
+          page: TurfDetailRoute.page,
         ),
       ];
 }

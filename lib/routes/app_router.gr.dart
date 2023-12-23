@@ -21,6 +21,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const OwnerRegisterScreen(),
       );
     },
+    TurfDetailRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TurfDetailScreen(),
+      );
+    },
     UserRegisterRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -46,6 +52,20 @@ class OwnerRegisterRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'OwnerRegisterRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TurfDetailScreen]
+class TurfDetailRoute extends PageRouteInfo<void> {
+  const TurfDetailRoute({List<PageRouteInfo>? children})
+      : super(
+          TurfDetailRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TurfDetailRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
