@@ -3,10 +3,18 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:turf_tender/constants/constants.dart';
+import 'package:turf_tender/presentation/turf_details/widgets/turf_calender.dart';
 
 @RoutePage()
-class TurfDetailScreen extends StatelessWidget {
+class TurfDetailScreen extends StatefulWidget {
   const TurfDetailScreen({super.key});
+
+  @override
+  State<TurfDetailScreen> createState() => _TurfDetailScreenState();
+}
+
+class _TurfDetailScreenState extends State<TurfDetailScreen> {
+  var selectedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +65,7 @@ class TurfDetailScreen extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(20),
                   width: 357.w,
-                  height: 220.h,
+                  height: 230.h,
                   clipBehavior: Clip.antiAlias,
                   decoration: ShapeDecoration(
                     color: Colors.white,
@@ -102,36 +110,44 @@ class TurfDetailScreen extends StatelessWidget {
                       SizedBox(
                         height: 15.h,
                       ),
-                      Row(
+                      Stack(
                         children: [
-                          Image.asset(
-                            'images/map-pin-5-line 1.png',
-                            width: 18.w,
-                            height: 18.h,
-                          ),
-                          SizedBox(
-                            width: 5.w,
-                          ),
-                          SizedBox(
-                            width: 240.w,
-                            child: Text(
-                              'Kakkanad , infopark expressway , Kochi , Kerala',
-                              style: TextStyle(
-                                color: Color(0xFF3792C4),
-                                fontSize: 13,
-                                fontFamily: 'Fira Sans',
-                                fontWeight: FontWeight.w300,
-                                height: 0,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Image.asset(
+                                'images/map-pin-5-line 1.png',
+                                width: 18.w,
+                                height: 18.h,
                               ),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              SizedBox(
+                                width: 235.w,
+                                child: Text(
+                                  'Kakkanad, Infopark Expressway, Kochi, Kerala',
+                                  style: TextStyle(
+                                    color: Color(0xFF3792C4),
+                                    fontSize: 13,
+                                    fontFamily: 'Fira Sans',
+                                    fontWeight: FontWeight.w300,
+                                    height: 0,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 1.w,
+                              ),
+                            ],
+                          ),
+                          Positioned(
+                            right: 10.r,
+                            child: Image.asset(
+                              'images/compass-3-fill 1.png',
+                              width: 24,
+                              height: 24,
                             ),
-                          ),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          Image.asset(
-                            'images/compass-3-fill 1.png',
-                            width: 24,
-                            height: 24,
                           ),
                         ],
                       ),
@@ -169,11 +185,62 @@ class TurfDetailScreen extends StatelessWidget {
                             ],
                           )
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),
-              )
+              ),
+              Container(
+                width: 335.w,
+                height: 220.h,
+                decoration: ShapeDecoration(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(11),
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20).r,
+                      child: Text(
+                        'Schedule Appointment',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontFamily: 'Fira Sans Condensed',
+                          fontWeight: FontWeight.w400,
+                          height: 0,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      clipBehavior: Clip.antiAlias,
+                      decoration: ShapeDecoration(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(11),
+                        ),
+                      ),
+                      child: HorizontalCalendarTurf(
+                        date: DateTime.now(),
+                        initialDate: DateTime.now(),
+                        textColor: Colors.black,
+                        backgroundColor: Colors.white,
+                        selectedColor: Color(0xff3792C4),
+                        locale: Localizations.localeOf(context),
+                        onDateSelected: (date) {
+                          print(date.toString());
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
